@@ -1,0 +1,310 @@
+{
+	"info": {
+		"_postman_id": "02515675-35eb-421c-91e5-a5b3aac1a8b1",
+		"name": "Gallery-App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login Failed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"User is not authorized\", function () {\r",
+							"    pm.expect(jsonData.error).to.eql(\"Unauthorized\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/auth/login?email={{email}}&password=wrongpassword",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "{{email}}"
+						},
+						{
+							"key": "password",
+							"value": "wrongpassword"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"postman.setEnvironmentVariable(\"token\", jsonData.access_token);\r",
+							"postman.setEnvironmentVariable(\"user_id\", jsonData.user_id);\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{domain}}/api/auth/login?email={{email}}&password={{password}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "{{email}}"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Gallery",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"Title of my gallery is correct\", function () {\r",
+							"    pm.expect(jsonData.title).to.eql(pm.environment.get(\"title\"));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Description of my gallery is correct\", function () {\r",
+							"    pm.expect(jsonData.description).to.eql(pm.environment.get(\"description\"));\r",
+							"});\r",
+							"\r",
+							"pm.environment.set(\"gallery_id\", jsonData.id);\r",
+							"\r",
+							"pm.test(\"Response time is less than 1s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"{{title}}\",\r\n    \"description\":\"{{description}}\",\r\n    \"images\":[\r\n        \"{{image_url}}\"\r\n             ]\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/galleries",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"galleries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "My gallery",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"Correct gallery is open\", function () {\r",
+							"    pm.expect(jsonData.id).to.eql(pm.environment.get(\"gallery_id\"));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Title and description are correct\", function () {\r",
+							"    pm.expect(jsonData.title).to.eql(pm.environment.get(\"title\"));\r",
+							"    pm.expect(jsonData.description).to.eql(pm.environment.get(\"description\"));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The gallery response contains creator user data\", function () {\r",
+							"     pm.expect(jsonData.user.id).to.eql(parseInt(pm.environment.get(\"user_id\")));\r",
+							"     pm.expect(jsonData.user.first_name).to.eql(pm.environment.get(\"first_name\"));\r",
+							"     pm.expect(jsonData.user.last_name).to.eql(pm.environment.get(\"last_name\"));\r",
+							"     pm.expect(jsonData.user.email).to.eql(pm.environment.get(\"email\"));\r",
+							"     pm.expect(jsonData.user.terms_and_conditions).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The gallery response contains image and gallery data\", function () {\r",
+							" pm.expect(jsonData.images[0].image_url).to.eql(pm.environment.get(\"image_url\"));\r",
+							" pm.expect(jsonData.images[0].gallery_id).to.eql(parseInt(pm.environment.get(\"gallery_id\")));\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{domain}}/api/galleries/{{gallery_id}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"galleries",
+						"{{gallery_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"User is successfully logged out\", function () {\r",
+							"    pm.expect(jsonData.message).to.eql(\"Successfully logged out\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/auth/logout",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
