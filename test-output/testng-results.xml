@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" ignored="0" total="6" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="30080" started-at="2021-03-27T04:26:38 CET" finished-at="2021-03-27T04:27:08 CET">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="30080" started-at="2021-03-27T04:26:38 CET" finished-at="2021-03-27T04:27:08 CET">
+      <class name="Tests.Gallery_App_Test">
+        <test-method status="PASS" signature="setup()[pri:0, instance:Tests.Gallery_App_Test@5a8806ef]" name="setup" is-config="true" duration-ms="2754" started-at="2021-03-27T04:26:38 CET" finished-at="2021-03-27T04:26:40 CET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="logIn()[pri:3, instance:Tests.Gallery_App_Test@5a8806ef]" name="logIn" duration-ms="2941" started-at="2021-03-27T04:26:40 CET" finished-at="2021-03-27T04:26:43 CET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logIn -->
+        <test-method status="PASS" signature="takeScreenshots(org.testng.ITestResult)[pri:0, instance:Tests.Gallery_App_Test@5a8806ef]" name="takeScreenshots" is-config="true" duration-ms="54" started-at="2021-03-27T04:26:43 CET" finished-at="2021-03-27T04:26:43 CET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=logIn status=SUCCESS method=Gallery_App_Test.logIn()[pri:3, instance:Tests.Gallery_App_Test@5a8806ef] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshots -->
+        <test-method status="PASS" signature="createGallery()[pri:5, instance:Tests.Gallery_App_Test@5a8806ef]" name="createGallery" duration-ms="5412" started-at="2021-03-27T04:26:43 CET" finished-at="2021-03-27T04:26:49 CET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createGallery -->
+        <test-method status="PASS" signature="takeScreenshots(org.testng.ITestResult)[pri:0, instance:Tests.Gallery_App_Test@5a8806ef]" name="takeScreenshots" is-config="true" duration-ms="84" started-at="2021-03-27T04:26:49 CET" finished-at="2021-03-27T04:26:49 CET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=createGallery status=SUCCESS method=Gallery_App_Test.createGallery()[pri:5, instance:Tests.Gallery_App_Test@5a8806ef] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshots -->
+        <test-method status="PASS" signature="myGaleryPage()[pri:7, instance:Tests.Gallery_App_Test@5a8806ef]" name="myGaleryPage" duration-ms="4177" started-at="2021-03-27T04:26:49 CET" finished-at="2021-03-27T04:26:53 CET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- myGaleryPage -->
+        <test-method status="PASS" signature="takeScreenshots(org.testng.ITestResult)[pri:0, instance:Tests.Gallery_App_Test@5a8806ef]" name="takeScreenshots" is-config="true" duration-ms="8" started-at="2021-03-27T04:26:53 CET" finished-at="2021-03-27T04:26:53 CET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=myGaleryPage status=SUCCESS method=Gallery_App_Test.myGaleryPage()[pri:7, instance:Tests.Gallery_App_Test@5a8806ef] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshots -->
+        <test-method status="PASS" signature="editMyGallery()[pri:8, instance:Tests.Gallery_App_Test@5a8806ef]" name="editMyGallery" duration-ms="9152" started-at="2021-03-27T04:26:53 CET" finished-at="2021-03-27T04:27:02 CET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- editMyGallery -->
+        <test-method status="PASS" signature="takeScreenshots(org.testng.ITestResult)[pri:0, instance:Tests.Gallery_App_Test@5a8806ef]" name="takeScreenshots" is-config="true" duration-ms="22" started-at="2021-03-27T04:27:02 CET" finished-at="2021-03-27T04:27:02 CET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=editMyGallery status=SUCCESS method=Gallery_App_Test.editMyGallery()[pri:8, instance:Tests.Gallery_App_Test@5a8806ef] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshots -->
+        <test-method status="FAIL" signature="deleteMyGallery()[pri:9, instance:Tests.Gallery_App_Test@5a8806ef]" name="deleteMyGallery" duration-ms="4217" started-at="2021-03-27T04:27:02 CET" finished-at="2021-03-27T04:27:07 CET">
+          <exception class="org.openqa.selenium.UnhandledAlertException">
+            <message>
+              <![CDATA[unexpected alert open: {Alert text : Are you sure you want to delete gallery?}
+  (Session info: chrome=89.0.4389.90): Are you sure you want to delete gallery?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:48'
+System info: host: 'DESKTOP-2KR4K00', ip: '192.168.1.104', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.90, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: C:\Users\HP\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:64926}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 00fd16fca8d750a41f86a6f6dec57d87
+*** Element info: {Using=id, value=element_id}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.UnhandledAlertException: unexpected alert open: {Alert text : Are you sure you want to delete gallery?}
+  (Session info: chrome=89.0.4389.90): Are you sure you want to delete gallery?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:48'
+System info: host: 'DESKTOP-2KR4K00', ip: '192.168.1.104', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.90, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: C:\Users\HP\AppData\Local\T...}, goog:chromeOptions: {debuggerAddress: localhost:64926}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 00fd16fca8d750a41f86a6f6dec57d87
+*** Element info: {Using=id, value=element_id}
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at Pages.My_Gallery_Page.deleteMyGallery(My_Gallery_Page.java:108)
+at Tests.Gallery_App_Test.deleteMyGallery(Gallery_App_Test.java:45)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:764)
+at org.testng.TestRunner.run(TestRunner.java:585)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+at org.testng.TestNG.runSuites(TestNG.java:1069)
+at org.testng.TestNG.run(TestNG.java:1037)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.UnhandledAlertException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteMyGallery -->
+        <test-method status="PASS" signature="takeScreenshots(org.testng.ITestResult)[pri:0, instance:Tests.Gallery_App_Test@5a8806ef]" name="takeScreenshots" is-config="true" duration-ms="330" started-at="2021-03-27T04:27:07 CET" finished-at="2021-03-27T04:27:07 CET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=deleteMyGallery status=FAILURE method=Gallery_App_Test.deleteMyGallery()[pri:9, instance:Tests.Gallery_App_Test@5a8806ef] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshots -->
+        <test-method status="PASS" signature="logout()[pri:10, instance:Tests.Gallery_App_Test@5a8806ef]" name="logout" duration-ms="104" started-at="2021-03-27T04:27:07 CET" finished-at="2021-03-27T04:27:07 CET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+        <test-method status="PASS" signature="takeScreenshots(org.testng.ITestResult)[pri:0, instance:Tests.Gallery_App_Test@5a8806ef]" name="takeScreenshots" is-config="true" duration-ms="8" started-at="2021-03-27T04:27:07 CET" finished-at="2021-03-27T04:27:07 CET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=logout status=SUCCESS method=Gallery_App_Test.logout()[pri:10, instance:Tests.Gallery_App_Test@5a8806ef] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshots -->
+        <test-method status="PASS" signature="close()[pri:0, instance:Tests.Gallery_App_Test@5a8806ef]" name="close" is-config="true" duration-ms="742" started-at="2021-03-27T04:27:07 CET" finished-at="2021-03-27T04:27:08 CET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- Tests.Gallery_App_Test -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
